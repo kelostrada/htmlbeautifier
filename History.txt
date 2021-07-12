@@ -1,4 +1,7 @@
-== 1.5.2 (2021-07-12)
+== 1.5.3 (2021-07-12)
+* Released a fix for multiple lines form_for cases
+
+== 1.5.2 (2021-07-12) [Retired]
 * Added special case to handle indentation of `f = form_for` cases in Phoenix LiveView
 
 == 1.5.1 (2021-07-12)
