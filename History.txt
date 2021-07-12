@@ -1,3 +1,8 @@
+== 1.5.1 (2021-07-12)
+* Commited fix by Felipe Peña Pita to handle very slow regex in html parser
+* By default keep blank lines to 1
+* Add missing span element in HTML_BLOCK_ELEMENTS 
+
 == 1.5.0 (2021-06-11)
 * Forked name to HtmlFormatter to be able to reuse it from rubygems
 
