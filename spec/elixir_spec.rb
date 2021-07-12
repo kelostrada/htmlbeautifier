@@ -71,7 +71,6 @@ describe HtmlFormatter do
     source = code <<-END
       <x <% x %>>
         <% x %><% x %><% x %><% x %><% x %><% x %>
-        
         <% x %><% x %><% x %><% x %><% x %><% x %>
         <% x %><% x %><% x %><% x %><% x %><% x %>
         <% x %><% x %><% x %><% x %><% x %><% x %>
@@ -81,7 +80,6 @@ describe HtmlFormatter do
     expected = code <<-END
       <x <% x %>>
         <% x %><% x %><% x %><% x %><% x %><% x %>
-
         <% x %><% x %><% x %><% x %><% x %><% x %>
         <% x %><% x %><% x %><% x %><% x %><% x %>
         <% x %><% x %><% x %><% x %><% x %><% x %>
@@ -92,6 +90,10 @@ describe HtmlFormatter do
     # regex = %r{<\w+([^>]|<%.*?%>)*/>}om
     # puts regex.match(source.to_s)
 
+    starting = Time.now
     expect(described_class.format(source, {engine: "eex"})).to eq(expected)
+    ending = Time.now
+
+    expect(ending - starting).to be < 1
   end
 end
