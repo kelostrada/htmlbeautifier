@@ -421,7 +421,7 @@ describe HtmlFormatter do
         </ol>
       </section>
     END
-    expect(described_class.format(source)).to eq(expected)
+    expect(described_class.format(source, {keep_blank_lines: 0})).to eq(expected)
   end
 
   it "does not modify content of <textarea>" do

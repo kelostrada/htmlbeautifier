@@ -81,6 +81,7 @@ describe HtmlFormatter do
     expected = code <<-END
       <x <% x %>>
         <% x %><% x %><% x %><% x %><% x %><% x %>
+
         <% x %><% x %><% x %><% x %><% x %><% x %>
         <% x %><% x %><% x %><% x %><% x %><% x %>
         <% x %><% x %><% x %><% x %><% x %><% x %>

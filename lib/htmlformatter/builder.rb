@@ -8,7 +8,7 @@ module HtmlFormatter
       indent: "  ",
       initial_level: 0,
       stop_on_errors: false,
-      keep_blank_lines: 0
+      keep_blank_lines: 1
     }
 
     def initialize(output, options = {})
