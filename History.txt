@@ -1,3 +1,6 @@
+== 1.5.2 (2021-07-12)
+* Added special case to handle indentation of `f = form_for` cases in Phoenix LiveView
+
 == 1.5.1 (2021-07-12)
 * Commited fix by Felipe Peña Pita to handle very slow regex in html parser
 * By default keep blank lines to 1
