@@ -4,6 +4,7 @@ module HtmlFormatter
     OUTDENT_KEYWORDS = %w[ else end ]
     ELIXIR_INDENT  = %r{
       ^ ( #{INDENT_KEYWORDS.join("|")} )\b
+      | ^ ( \w+\s*=\s*form\_for )
       | ( -\> | do ) $
     }xo
     ELIXIR_OUTDENT = %r{ ^ ( #{OUTDENT_KEYWORDS.join("|")} | \} ) \b }xo

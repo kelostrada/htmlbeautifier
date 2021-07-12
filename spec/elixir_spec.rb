@@ -96,4 +96,44 @@ describe HtmlFormatter do
 
     expect(ending - starting).to be < 1
   end
+
+  it "indents special form_for in Phoenix LiveView" do
+    source = code <<-END
+      <%= f = form_for :form, "", [] %>
+      <input type="text"/>
+      </form>
+      <%= f    =   form_for :form, "", [] %>
+      <input type="text"/>
+      </form>
+      <%= f=form_for :form, "", [] %>
+      <input type="text"/>
+      </form>
+      <%=  f = form_for :form, "", [] %>
+      <input type="text"/>
+      </form>
+      <%= form_for :form, "", [] %>
+      <input type="text"/>
+      </form>
+    END
+
+    expected = code <<-END
+      <%= f = form_for :form, "", [] %>
+        <input type="text"/>
+      </form>
+      <%= f    =   form_for :form, "", [] %>
+        <input type="text"/>
+      </form>
+      <%= f=form_for :form, "", [] %>
+        <input type="text"/>
+      </form>
+      <%=  f = form_for :form, "", [] %>
+        <input type="text"/>
+      </form>
+      <%= form_for :form, "", [] %>
+      <input type="text"/>
+      </form>
+    END
+
+    expect(described_class.format(source, {engine: "eex"})).to eq(expected)
+  end
 end
