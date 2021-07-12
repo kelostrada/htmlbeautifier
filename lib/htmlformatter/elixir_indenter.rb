@@ -14,7 +14,7 @@ module HtmlFormatter
     end
 
     def indent?(lines)
-      lines.last =~ ELIXIR_INDENT
+      lines.join("\n") =~ ELIXIR_INDENT
     end
   end
 end

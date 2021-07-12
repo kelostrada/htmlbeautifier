@@ -136,4 +136,22 @@ describe HtmlFormatter do
 
     expect(described_class.format(source, {engine: "eex"})).to eq(expected)
   end
+
+  it "indents special form_for for multiline tags" do
+    source = code <<-END
+      <%= f = form_for :form, "", [a: 1,
+        some_very_long_setting_in_a_new_line: 2] %>
+      <input type="text"/>
+      </form>
+    END
+
+    expected = code <<-END
+      <%= f = form_for :form, "", [a: 1,
+        some_very_long_setting_in_a_new_line: 2] %>
+        <input type="text"/>
+      </form>
+    END
+
+    expect(described_class.format(source, {engine: "eex"})).to eq(expected)
+  end
 end
